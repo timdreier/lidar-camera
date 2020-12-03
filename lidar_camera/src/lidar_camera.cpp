@@ -102,7 +102,7 @@ void LidarCamera::cloudCb(const sensor_msgs::PointCloud2ConstPtr &cloud_msg) {
     if (inRange(point)) {
       auto uv_pixel = cam_model_.project3dToPixel({point.x, point.y, point.z});
       if (inFOV(uv_pixel, cv_ptr_->image)) {
-        auto rgb_colour = cv_ptr_->image.at<cv::Vec3b>(uv_pixel.x, uv_pixel.y);
+        auto rgb_colour = cv_ptr_->image.at<cv::Vec3b>(static_cast<int>(uv_pixel.y), static_cast<int>(uv_pixel.x));
         processed_cloud_XYZRGB.push_back(
             createPointXYZRGB(point, rgb_colour[0], rgb_colour[1], rgb_colour[2]));
 
