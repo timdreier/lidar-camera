@@ -1,6 +1,6 @@
 ## Setup
-ROS distribution: Melodic
-Ubuntu: Ubuntu 18.04
+ROS distribution: Noetic
+Ubuntu: Ubuntu 20.04
 
 Clone the package in your catkin workspace and build to resolve missing dependencies.
 
